@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+ /*=================*/
+/*      BASE         */
+/*=================*/
+:root{
+    --primary-color: #f56004;
+}
+html{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: gray !important;
+    background-image: url(assets/images/background-adare-restaurant.jpg);
+    background-size: cover;
+}
+
+.container{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80vw;
+}
+/*  Header */
+.container .header{
+    text-align: center;
+    height: 20vh;
+}
+
+/*  IMG logo  */
+.container .header .img-container{
+    height: 12vh;
+    display: flex;
+    justify-content: center;
+}
+.container .header .img-container .img-logo{
+    height: 10vh;
+}
+
+/*  Nav bar   */
+.container .header .navbar{
+    display: flex;
+    justify-content: space-between;
+    width: 40vw;
+    margin:0 auto;
+}
+
+.container .header .navbar .nav-item{
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: all 0.3s ease-in-out;
+}
+
+.container .header .navbar .nav-item:hover{
+    /*animation: navItemHover 0.3s forwards;
+    Animacion */
+}
+/*@keyframes navItemHover {
+    to {
+        color: var(--primary-color);
+        font-size: 1.4em;
+        text-decoration: underline;
+    }
+}*/
+
+/*=================*/
+/* Main container */
+/*=================*/
+.container .main-container{
+    margin-top: 5vh;
+    text-align: center;
+}
+
+.container .main-container .main-text-container{
+    color: white;
+    padding: 2rem;
+}
+
+.container .main-container .main-text-container .main-text{
+    font-family: "Edu NSW ACT Cursive", cursive;
+    font-size: 3.5em;
+    transition: all 2s;
+}
+.container .main-container .main-text-container .main-text:hover {
+    text-shadow: 0.05em 0.05em var(--primary-color);
+}
+
+.container .main-container .main-text-container article{
+    margin: 0 auto;
+    max-width: 40vw;
+}
+
+.container .main-container .main-text-container article p{
+    color: rgb(183, 181, 181);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.1em;
+}
+.container .main-container .main-text-container article strong a{
+    text-decoration: none;
+    color: white;
+    text-shadow: 0.1em 0.1em var(--primary-color);
+}
+.container .main-container .maps-container .maps{
+    height: 50vh;
+    width: 60vw;
+}
+
+/* Footer */
+.container .footer{
+    color: white;
+}
+.container .footer h4{
+    font-size:  0.7em;
+}
