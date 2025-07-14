@@ -31,13 +31,14 @@ header {
 }
 
 .container .navbar .nav-item{
+  margin-right: 5vh;
   color:  #fff;
   text-decoration: none;
   font-size: 1.2em;
   transition: all 0.3s ease-in-out;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   .container{
     flex-direction: column;
   }
@@ -54,7 +55,7 @@ header {
   }
 }
 
-
+/*Main section*/ 
 main {
   padding: 2rem;
   background-color: #fff;
@@ -86,20 +87,91 @@ main {
     flex-direction: column;
   }
 }
+/*contacts-container*/
+main .contacts-container{
+  margin-top: 2rem;
+  padding: 2rem;
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contacts-container h2 {
+  margin-bottom: 1rem;
+  color: #333;
+  text-align: center;
+}
+
+.contacts-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.field input,.field textarea {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.field input:focus,.field textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.contacts-container button {
+  padding: 0.9rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.contacts-container button:hover {
+  background-color: #0056b3;
+}
+
+/*products-container*/
+main .products-container{
+  width: 100%;
+  margin: 0;
+}
 
 footer {
   text-align: center;
   padding: 1rem;
   background-color: #b10000;
   color: #fff;
-  position: fixed;
   bottom: 0;
   width: 100%;
 }
 
-.producto {
-  border: 1px solid #ddd;
-  padding: 1rem;
-  margin: 1rem 0;
-  background-color: #fafafa;
+footer .info-footer{
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
+
+footer .local{
+  white-space: normal;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 0.5em;
+}
+
