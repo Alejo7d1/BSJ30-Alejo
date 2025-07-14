@@ -51,7 +51,7 @@ function funcionQueTieneCallBack(callback){
     callbackfn();
 }
 
-funcionQueUsaCallback(()=>{
+funcionQueUsaCallback(() => {
     console.log("Soy anonima"); 'Soy anonima'
     return "Jaime"
 });
