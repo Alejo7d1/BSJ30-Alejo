@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simen contactanos</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <img class="logo-png" src="https://siman.vtexassets.com/assets/vtex.file-manager-graphql/images/b06d7d59-cb0a-4fc3-8ced-7ab9fe02a68f___19999b42961a45dbb2f4293973939c0b.svg" alt="Logo siman" class="logo">
+      <navbar class="navbar">
+      <a href="index.html" class="nav-item">Inicio</a>
+      <a href="products.html"class="nav-item">Productos</a>
+      <a href="contacts.html"class="nav-item">Contacto</a>
+      </navbar>
+    </div>
+  </header>
+
+  <main>
+    <div class="contacts-container">
+       <h2>Contáctanos</h2>
+  <form>
+    <div class="field">
+      <label for="nombre">Nombre completo</label>
+      <input type="text" id="nombre" name="nombre" required>
+    </div>
+
+    <div class="field">
+      <label for="email">Correo electrónico</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+
+    <div class="field">
+      <label for="telefono">Teléfono</label>
+      <input type="tel" id="telefono" name="telefono" pattern="[0-9]{8}" placeholder="Ej: 2298-3777" required>
+    </div>
+
+    <div class="field">
+      <label for="asunto">Asunto</label>
+      <input type="text" id="asunto" name="asunto" required>
+    </div>
+
+    <div class="field">
+      <label for="mensaje">Mensaje</label>
+      <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+    </div>
+
+    <button type="submit">Enviar mensaje</button>
+  </form>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Siman
+  </footer>
+
+</body>
+</html>
