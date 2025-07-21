@@ -160,3 +160,85 @@ function calcularValores(){
     console.log("Cantidad de números múltiplos de 15:", multiploDe15);
     console.log("Suma de números pares:", acumuladoPares);
     }
+
+//Ejercicio 8
+function tablaMultiplicar() {
+    let numero = parseInt(prompt("Numero del que quieras saber la tabla de multiplicar"));
+    for (let i = 1; i <= 10; i++) {
+        console.log(numero + "x" + [i] + "=" + (numero * i));
+    }
+}
+
+//Ejercicio 9
+function temperatura() {
+    let cel = parseFloat(prompt("Ingrese la temperatura en Celsius"));
+    let Fah = (cel * 9/5) + 32;
+    console.log("Temperatura en Fah:", Fah);
+
+    if (Fah >= 14 && Fah < 32) {
+        console.log("Temperatura baja");
+    } else if (Fah >= 32 && Fah < 68) {
+        console.log("Temperatura adecuada");
+    } else if (Fah >= 68 && Fah < 96) {
+        console.log("Temperatura alta");
+    } else {
+        console.log("Temperatura desconocida");
+    }
+}
+
+//Ejercicio 10
+function promedioEdadesTurnos() {
+    function pedirEdades(cantidad, turno) {
+        let edades = [];
+        for (let i = 1; i <= cantidad; i++) {
+            let edad = parseInt(prompt(`Ingrese la edad del estudiante ${i} del turno ${turno}:`));
+            if (isNaN(edad) || edad <= 0) {
+                console.log(`Edad inválida para el estudiante ${i} del turno ${turno}.`);
+                i--;
+            } else {
+                edades.push(edad);
+            }
+        }
+        return edades;
+    }
+
+    let edadesManiana = pedirEdades(5, "mañana");
+    let edadesTarde = pedirEdades(6, "tarde");
+    let edadesNoche = pedirEdades(11, "noche");
+
+    function calcularPromedio(edades) {
+        let suma = edades.reduce((acc, val) => acc + val, 0);
+        return suma / edades.length;
+    }
+
+    let promedioManiana = calcularPromedio(edadesManiana);
+    let promedioTarde = calcularPromedio(edadesTarde);
+    let promedioNoche = calcularPromedio(edadesNoche);
+
+    console.log(`Promedio de edades turno mañana: ${promedioManiana.toFixed(2)}`);
+    console.log(`Promedio de edades turno tarde: ${promedioTarde.toFixed(2)}`);
+    console.log(`Promedio de edades turno noche: ${promedioNoche.toFixed(2)}`);
+
+    let mayor = Math.max(promedioManiana, promedioTarde, promedioNoche);
+    let mensaje = "";
+
+    switch (mayor) {
+        case promedioManiana:
+            mensaje = "El turno mañana tiene el promedio de edades mayor.";
+            break;
+        case promedioTarde:
+            mensaje = "El turno tarde tiene el promedio de edades mayor.";
+            break;
+        case promedioNoche:
+            mensaje = "El turno noche tiene el promedio de edades mayor.";
+            break;
+    }
+    console.log(mensaje);
+
+    let resultado = 
+        `Promedio mañana: ${promedioManiana.toFixed(2)}<br>` +
+        `Promedio tarde: ${promedioTarde.toFixed(2)}<br>` +
+        `Promedio noche: ${promedioNoche.toFixed(2)}<br>` +
+        `<strong>${mensaje}</strong>`;
+    document.getElementById('resultadoPromedios').innerHTML = resultado;
+}
