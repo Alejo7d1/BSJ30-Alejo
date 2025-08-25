@@ -1,0 +1,47 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: #2b004a;
+  color: #fff;
+}
+
+.navbar_left,
+.navbar_right {
+  flex: 0 0 auto;
+}
+
+.kodigo_icon {
+  height: 42px;
+  width: 42px;
+  filter: brightness(0) invert(1);
+  padding: 6px;
+  cursor: pointer;
+  object-fit: contain;
+}
+
+
+.navbar_center {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.navbar_search {
+  padding: 8px 24px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  width: 220px;
+}
+
+.navbar_button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
