@@ -37,7 +37,7 @@ function Navbar({ onSearch }) {
           <input
             type="text"
             className="navbar_search"
-            placeholder="¿Artista tienes en mente?"
+            placeholder="¿Qué artista tienes en mente?"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />

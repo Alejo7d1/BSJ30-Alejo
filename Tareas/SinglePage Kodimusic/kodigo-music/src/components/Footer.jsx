@@ -1,8 +1,10 @@
+import "./styles/Footer.css"
+
 function Footer() {
     return (
         <>
         <footer>
-            <h1>Hola soy el footer</h1>
+            <h1>Hola soy el Paco</h1>
         </footer>
         </>
     )
