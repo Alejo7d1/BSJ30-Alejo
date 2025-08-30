@@ -13,7 +13,6 @@
 }
 
 .kodigo_icon {
-  height: 42px;
   width: 42px;
   filter: brightness(0) invert(1);
   padding: 6px;
@@ -31,17 +30,27 @@
 }
 
 .navbar_search {
+  font-size: 1.2lvh;
   padding: 8px 24px;
   border-radius: 20px;
   border: none;
   outline: none;
-  width: 220px;
+  width: 18vw;
+  min-width: 150px;
 }
 
 .navbar_button {
   background: none;
+  justify-content: center;
   border: none;
   color: #fff;
-  font-size: 1.5rem;
   cursor: pointer;
+  border-radius: 50%;
+  background: #3e264f;
+  padding: 5px;
+}
+
+.navbar_button:hover {
+  filter: brightness(1.5);
+  transform: scale(1.1);
 }
