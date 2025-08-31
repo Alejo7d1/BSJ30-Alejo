@@ -4,6 +4,7 @@ import "./styles/Main.css";
 function Main({ search }) {
   const [albums, setAlbums] = useState([]);
 
+  //Lista las canciones desde la base de API de apple music
   useEffect(() => {
     if (!search) return;
 
