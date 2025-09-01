@@ -44,8 +44,8 @@
   transition: border 0.2s ease-in-out;
 }
 
-.form-group input:focus {
-  border-color: #2575fc;
+.error-text{
+  color: red;
 }
 
 .button-submit{

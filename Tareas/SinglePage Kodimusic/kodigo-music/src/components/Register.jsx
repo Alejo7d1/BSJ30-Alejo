@@ -8,16 +8,16 @@ import { auth } from "../repositories/firebase/config";
 //Match contraseña
 const schema = yup.object({
     email: yup.string().email("Inserta un correo valido").required(),
-    password: yup.string().required().min(8,"Insertar una contraseña")
-    .matches(/[A-Z]/)
-    .matches(/[a-z]/)
-    .matches(/[0-9]/)
-    .matches(/[!@%&#()?¿¡Ç´`+ª<>]/),
-    confirm_password: yup.string().oneOf([yup.ref("password")])
+    password: yup.string().required("La contraseña es requerida").min(8,"Insertar una contraseña de 8 digitos")
+    .matches(/[a-z]/,"La contreña debe contener texto")
+    .matches(/[A-Z]/,"Debe contener una Mayuscula")
+    .matches(/[0-9]/,"Debe contener un número")
+    .matches(/[!@%&#()?¿¡Ç´`+ª<>]/,"Debe contener un caracter especial"),
+    confirm_password: yup.string().oneOf([yup.ref("password"),null],"Las contraeñas no coinciden").required("Confirma la contraseña")
 })
 
 export const RegisterComponent = () => {
-    const {register, handleSubmit} = useForm({
+    const {register, handleSubmit, formState: {errors}} = useForm({
         resolver: yupResolver(schema)
     });
 
@@ -29,6 +29,7 @@ export const RegisterComponent = () => {
     .then((userCredential) => {
     // Signed up 
     const user = userCredential.user;
+    alert("Registrado con exito " + data.email);
     // ...
     })
     .catch((error) => {
@@ -36,6 +37,15 @@ export const RegisterComponent = () => {
     const errorMessage = error.message;
     console.log(errorCode);
     console.log(errorMessage);
+    
+    switch (error.code) {
+          case "auth/email-already-in-use":
+            alert("El correo ya está registrado.");
+            break;
+          default:
+            alert("Ocurrió un error: " + error.message);
+        }
+
     // ..
     });
 }
@@ -53,11 +63,17 @@ export const RegisterComponent = () => {
           <div className="form-group">
             <label>Contraseña</label>
             <input type="password" {...register("password")} />
+            {errors.password && (
+              <span className="error-text">{errors.password.message}</span>
+            )}
           </div>
 
           <div className="form-group">
             <label>Confirmar contraseña</label>
             <input type="password" {...register("confirm_password")} />
+            {errors.confirm_password && (
+              <span className="error-text">{errors.confirm_password.message}</span>
+            )}
           </div>
 
           <button className="button-submit" type="submit">Registrar</button>
