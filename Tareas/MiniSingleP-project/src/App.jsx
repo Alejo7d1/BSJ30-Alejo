@@ -1,6 +1,6 @@
 import './App.css'
 import { useEffect, useState } from "react";
-import { db } from "./firebaseConfig";
+import { db } from "./FirebaseConfig";
 import { collection, addDoc, getDocs, updateDoc, doc, deleteDoc  } from "firebase/firestore";
 
 function App() {
