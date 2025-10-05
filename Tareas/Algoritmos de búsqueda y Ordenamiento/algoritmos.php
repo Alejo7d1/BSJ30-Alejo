@@ -1,5 +1,5 @@
 <?
-//lista enlazada
+/*-----------------LISTA ENLAZADA--------------------------*/
 class Node{
     private $value;
     private $next;
@@ -31,6 +31,7 @@ class LinkedList{
         $this->head = null;
     }
 
+    //Agregar
     function add ($value){
 
         $newNode = new Node($value);
@@ -46,17 +47,61 @@ class LinkedList{
             $current->SetNext($newNode);
         }
     }
+
+    //Buscar
+    function search($value){
+        $current = $this->head;
+        $pos = 0;
+        while ($current !== null){
+            if($current->getValue() == $value){
+                echo "Valor encontrado en posición {$pos}\n";
+                return true;
+            }
+            $current = $current->getNext();
+            $pos++;
+        }
+        echo "Valor no encontrado";
+        return false;
+    }
+
+    //Borrar
+    function delete($value){
+        if($this->head === null) return false;
+
+        //Si el nodo a borrar está en head
+        if($this->head->getValue() == $value){
+            $this->head = $this->head->getNext();
+            return true;
+        }
+
+        //Recorre buscando el valor
+        $current = $this->head;
+        while($current->getNext() !== null){
+            if($current->getNext()->getValue() == $value){
+                $current->setNext($current->getNext()->getNext());
+                return true;
+            }
+            $current = $current->getNext();
+        }
+
+        return false;
+    }
 }
 
 $Listita = new LinkedList();
 $Listita->add(3);
 $Listita->add(1);
 $Listita->add(5);
+
+$Listita->search(1);
+$Listita->delete(1);
+$Listita->search(1);
+
 print_r($Listita);
 
 
 
-//Arbol binario
+/*------------------ARBOL BINARIO---------------------------------*/
 class Nodo{
     private $value;
     private $left;
@@ -99,6 +144,8 @@ class Nodo{
         {
             $this->root = $valueParam;
         }
+
+        //Agregar
         function insert($data){
             $newNode = new Nodo($data);
 
@@ -135,25 +182,43 @@ class Nodo{
     
         }
 
+        //Buscar
         function search($data){//valor buscado
-                $current = $this -> root; //establece a current en root 
-                $nivel = 0;
+            $current = $this -> root; //establece a current en root 
+            $nivel = 0;
                 
-                while ($current != null){ //recorre todo el arbol hasta hacer match
-                    if($data == $current->getValue()){
-                        echo "Dato encontrado en nivel {$nivel}";
-                        return true;
-                    }elseif(($data) > $current -> getValue()){
-                        $current = $current->getRight();
-                    }else{
-                        $current = $current->getLeft();
-                    }
-                    $nivel++; //cuenta el nivel
+            while ($current != null){ //recorre todo el arbol hasta hacer match
+                if($data == $current->getValue()){
+                    echo "Dato encontrado en nivel {$nivel}\n";
+                    return true;
+                }elseif(($data) > $current -> getValue()){
+                    $current = $current->getRight();
+                }else{
+                    $current = $current->getLeft();
+                }
+                $nivel++; //cuenta el nivel
                 }
 
-                echo "Dato no encontrado";
+                echo "Dato no encontrado\n";
                 return false;
             }
+
+        //Borrar rama
+        function delete($node, $data) {
+        if ($node == null) {
+        return null;
+        }
+
+        if ($data < $node->getValue()) {
+            $node->setLeft($this->delete($node->getLeft(), $data));
+        } elseif ($data > $node->getValue()) {
+            $node->setRight($this->delete($node->getRight(), $data));
+        } else {
+            return null; // Encuentra el nodo y se borra
+            }
+
+        return $node;
+}
     }
     $nuevoNodo = new Nodo(10);
 
@@ -165,7 +230,9 @@ class Nodo{
     $arbolito->insert(13);
 
     print_r($arbolito);
-    $arbolito->search(14);
+    $arbolito->search(13);
+    $arbolito->delete($nuevoNodo, 13);
+    $arbolito->search(13);
 
-    
+
 ?>
