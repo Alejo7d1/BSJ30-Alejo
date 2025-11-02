@@ -1,0 +1,8 @@
+=== SALIDA EN ARCHIVO TXT ===<br>Array
+(
+    [mensaje] => Hola mundo
+    [timestamp] => 2025-11-02 04:37:00
+    [usuario] => Juan Pérez
+    [nivel] => admin
+)
+<br>

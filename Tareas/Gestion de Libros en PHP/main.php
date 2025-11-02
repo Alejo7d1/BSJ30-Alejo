@@ -1,6 +1,5 @@
 <?
+
 echo "en progreso";
-
-
 
 ?>
