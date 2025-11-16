@@ -1,9 +1,6 @@
 <?php
 
-    class MenuTienda{Gestión de Libros en PHP
-        function MostrarMenu(){}
-    }
-
+ 
     class Carrito{
         function agregarProductoCarrito(){}
 
