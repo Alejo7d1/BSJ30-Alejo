@@ -51,18 +51,4 @@ function crearAlojamiento($nombre, $descripcion, $precio, $ubicacion, $imagen = 
     return $stmt->execute([$nombre, $descripcion, $precio, $ubicacion, $imagen]);
 }
 
-//Eliminar un alojamiento
-function eliminarAlojamientoSistema($alojamiento_id) {
-    global $pdo;
-    try {
-        $stmt = $pdo->prepare("DELETE FROM usuario_alojamientos WHERE alojamiento_id = ?");
-        $stmt->execute([$alojamiento_id]);
-        
-        $stmt = $pdo->prepare("DELETE FROM alojamientos WHERE id = ?");
-        return $stmt->execute([$alojamiento_id]);
-    } catch (PDOException $e) {
-        error_log("Error eliminando alojamiento: " . $e->getMessage());
-        return false;
-    }
-}
 ?>
