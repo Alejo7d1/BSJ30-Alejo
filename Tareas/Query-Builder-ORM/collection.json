@@ -1,0 +1,258 @@
+{
+	"info": {
+		"_postman_id": "b6a36bb7-58b9-4d97-8b62-dfa8df48b311",
+		"name": "pedidos-api",
+		"description": "Colección de endpoints para probar el controlador MainController",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40804678"
+	},
+	"item": [
+		{
+			"name": "Insertar Datos",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"usuarios\": [\n      {\n        \"nombre\": \"Roberto García\",\n        \"correo\": \"roberto@email.com\",\n        \"telefono\": \"555-1001\"\n      },\n      {\n        \"nombre\": \"María Rodríguez\",\n        \"correo\": \"maria@email.com\", \n        \"telefono\": \"555-1002\"\n      },\n      {\n        \"nombre\": \"Carlos López\",\n        \"correo\": \"carlos@email.com\",\n        \"telefono\": \"555-1003\"\n      },\n      {\n        \"nombre\": \"Raquel Martínez\",\n        \"correo\": \"raquel@email.com\",\n        \"telefono\": \"555-1004\"\n      },\n      {\n        \"nombre\": \"Ricardo Sánchez\",\n        \"correo\": \"ricardo@email.com\",\n        \"telefono\": \"555-1005\"\n      }\n    ],\n    \"pedidos\": [\n      {\n        \"producto\": \"Laptop Gaming\",\n        \"cantidad\": 1,\n        \"total\": 1200.00,\n        \"id_usuario\": 1\n      },\n      {\n        \"producto\": \"Mouse Inalámbrico\", \n        \"cantidad\": 2,\n        \"total\": 150.00,\n        \"id_usuario\": 1\n      },\n      {\n        \"producto\": \"Smartphone\",\n        \"cantidad\": 1,\n        \"total\": 800.00,\n        \"id_usuario\": 2\n      },\n      {\n        \"producto\": \"Funda Protectora\",\n        \"cantidad\": 3,\n        \"total\": 75.00,\n        \"id_usuario\": 2\n      },\n      {\n        \"producto\": \"Auriculares Bluetooth\",\n        \"cantidad\": 1,\n        \"total\": 120.00,\n        \"id_usuario\": 2\n      },\n      {\n        \"producto\": \"Tablet\",\n        \"cantidad\": 1,\n        \"total\": 300.00,\n        \"id_usuario\": 3\n      },\n      {\n        \"producto\": \"Teclado Mecánico\",\n        \"cantidad\": 1,\n        \"total\": 180.00,\n        \"id_usuario\": 3\n      },\n      {\n        \"producto\": \"Monitor 24\\\"\",\n        \"cantidad\": 1,\n        \"total\": 250.00,\n        \"id_usuario\": 4\n      },\n      {\n        \"producto\": \"Silla Ergonómica\",\n        \"cantidad\": 1,\n        \"total\": 350.00,\n        \"id_usuario\": 4\n      },\n      {\n        \"producto\": \"Impresora Laser\",\n        \"cantidad\": 1,\n        \"total\": 200.00,\n        \"id_usuario\": 5\n      },\n      {\n        \"producto\": \"Cartuchos Tinta\",\n        \"cantidad\": 4,\n        \"total\": 80.00,\n        \"id_usuario\": 5\n      },\n      {\n        \"producto\": \"Papel Oficio\",\n        \"cantidad\": 2,\n        \"total\": 25.00,\n        \"id_usuario\": 5\n      }\n    ]\n  }"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pedidos por Usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/usuario/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"usuario",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pedidos con Usuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/pedidos/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"pedidos",
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pedidos por Rango",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/pedidos/range?min=10&max=50",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"pedidos",
+						"range"
+					],
+					"query": [
+						{
+							"key": "min",
+							"value": "10"
+						},
+						{
+							"key": "max",
+							"value": "50"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usuarios por Letra",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/usuarios/search/R",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"usuarios",
+						"search",
+						"R"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contar Pedidos de Usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/pedidos/usuario/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"pedidos",
+						"usuario",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pedidos Ordenados por Total",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/pedidos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"pedidos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Suma Total de Pedidos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/pedidos/total",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"pedidos",
+						"total"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pedido Más Económico",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/pedido/economico",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"pedido",
+						"economico"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pedidos Agrupados por Usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/usuarios/pedidos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"usuarios",
+						"pedidos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver Datos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
